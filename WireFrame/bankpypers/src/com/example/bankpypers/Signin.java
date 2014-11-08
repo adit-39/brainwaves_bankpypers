@@ -142,8 +142,9 @@ public class Signin extends Activity {
 									}
 									
 								});
-							else
-								startActivity(new Intent("com.example.bankpypers.SIGNIN"));
+							else{
+								startActivity(new Intent("com.example.bankpypers.HOME"));
+								finish();}
 						} catch (ClientProtocolException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
