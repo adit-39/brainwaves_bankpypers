@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route('/api/authorize/<name>')
 def salt(name):
 	x=utils.get_salt(name)
-	return json.dumps(x)
+	return json.dumps(x[0])
 
 @app.route('/api/authorize/<name>/<passwd>')
 def authorize(name,passwd):
