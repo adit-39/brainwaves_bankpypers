@@ -29,7 +29,7 @@ import android.widget.Toast;
 public class MainActivity extends FragmentActivity {
 
 	private String[] tabs = {"Home","Forms","Portfolio"};
-	Context m;
+	 static Context m;
 	
 	ImageButton voice;
 	private DrawerLayout mDrawerLayout;
@@ -165,8 +165,11 @@ private void selectItem(int position) {
 	case 0:
 		fragment = new HomeFragment();
 		fragment.setArguments(args);
+		break;
 		
-	case 1:
+	case 1:fragment = new FormsFragment();
+	fragment.setArguments(args);
+	break;
 		
 	case 2:
 		
