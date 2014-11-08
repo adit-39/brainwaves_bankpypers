@@ -1,0 +1,39 @@
+ 	<RelativeLayout
+ 	    xmlns:android="http://schemas.android.com/apk/res/android"
+ 	    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+ 	
+ 	
+ 	<android.support.v4.widget.DrawerLayout
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#d8d8d8">
+    <!-- The main content view -->
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        
+    </FrameLayout>
+    <!-- The navigation drawer -->
+    <ListView android:id="@+id/left_drawer"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:divider="#c8c8c8"
+        android:dividerHeight="1dp"
+        android:choiceMode="singleChoice"
+        android:background="#d8d8d8"/>
+</android.support.v4.widget.DrawerLayout>
+<ImageButton
+ 	    android:id="@+id/voice"
+ 	    android:layout_width="wrap_content"
+ 	    android:layout_height="wrap_content"
+ 	    android:layout_centerHorizontal="true"
+ 	    android:layout_alignParentBottom="true"
+ 	    android:src="@drawable/ic_voice"
+ 	    android:background="#d8d8d8" />
+
+</RelativeLayout>
+
