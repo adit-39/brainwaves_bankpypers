@@ -3,7 +3,10 @@ package com.example.bankpypers;
 import java.util.ArrayList;
 import java.util.List;
 
+
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -28,9 +31,10 @@ import android.widget.Toast;
 
 public class MainActivity extends FragmentActivity {
 
-	private String[] tabs = {"Home","Forms","Portfolio"};
+	private String[] tabs = {"Portfolio","Forms","Bank"};
 	 static Context m;
 	
+	 ArrayList<String> voice_results;
 	ImageButton voice;
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
@@ -50,7 +54,7 @@ public class MainActivity extends FragmentActivity {
         m=getApplicationContext();
         
         fragmentManager=getSupportFragmentManager();
-		fragment = new HomeFragment();
+		fragment = new PortFolio();
 		Bundle args = new Bundle();
 		//args.putInt(AboutUs.ARG_TAB_NUMBER, 1);
 		fragment.setArguments(args);
@@ -67,6 +71,7 @@ public class MainActivity extends FragmentActivity {
 						"No voice recogniton software",Toast.LENGTH_SHORT).show();
 				else
 					startVoiceRecognitionActivity();
+				 	
 			}
 				
 			
@@ -140,20 +145,42 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data)
   if (requestCode == REQUEST_CODE && resultCode == RESULT_OK)
   {
       // Populate the wordsList with the String values the recognition engine thought it heard
-      ArrayList<String> matches = data.getStringArrayListExtra(
+     voice_results = data.getStringArrayListExtra(
               RecognizerIntent.EXTRA_RESULTS);
      // Toast.makeText(m, "yo",Toast.LENGTH_SHORT).show();
-     if(matches.equals(null))
+     if(voice_results.equals(null))
     	  Toast.makeText(m, "null",Toast.LENGTH_SHORT).show();
-      else
-    	  Toast.makeText(m, matches.get(0),Toast.LENGTH_SHORT).show();
-    	 
       //wordsList.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
         //      matches));
+     else
+    	 voice();
   }
   super.onActivityResult(requestCode, resultCode, data);
 }
 
+public void voice()
+{
+	//Toast.makeText(m, "In Voice",Toast.LENGTH_SHORT).show();
+	
+	if(voice_results!=null){
+		//Toast.makeText(m, voice_results.get(0),Toast.LENGTH_SHORT).show();
+	if(voice_results.get(0).contains("balance")){
+		Toast.makeText(m, "Your current Balance is: <balance>",Toast.LENGTH_LONG).show();
+	}
+	
+	  else if(voice_results.get(0).contains("map"))
+	  {
+		  Intent i=new Intent(m,BankMap.class);
+		  startActivity(i);
+	  }
+	}
+	else
+	{
+		Toast.makeText(m, "voice_results is null",Toast.LENGTH_SHORT).show();
+	}
+
+		
+}
 
 /** Swaps fragments in the main content view */
 private void selectItem(int position) {
@@ -162,18 +189,20 @@ private void selectItem(int position) {
 	Bundle args = new Bundle();
 	switch(position)
 	{
-	case 0:
-		fragment = new HomeFragment();
-		fragment.setArguments(args);
-		break;
+	case 0:fragment = new PortFolio();
+	fragment.setArguments(args);
+	break;
+		
 		
 	case 1:fragment = new FormsFragment();
 	fragment.setArguments(args);
 	break;
 		
-	case 2:
+	case 2:fragment = new HomeFragment();
+	fragment.setArguments(args);
+	break;
 		
-	case 3:
+
 
 	}
 
