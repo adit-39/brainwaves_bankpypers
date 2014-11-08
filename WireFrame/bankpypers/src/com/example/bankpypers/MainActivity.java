@@ -30,6 +30,7 @@ public class MainActivity extends FragmentActivity {
 
 	private String[] tabs = {"Home","Forms","Portfolio"};
 	Context m;
+	
 	ImageButton voice;
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
@@ -45,6 +46,8 @@ public class MainActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        m=getApplicationContext();
         
         fragmentManager=getSupportFragmentManager();
 		fragment = new HomeFragment();
@@ -139,7 +142,12 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data)
       // Populate the wordsList with the String values the recognition engine thought it heard
       ArrayList<String> matches = data.getStringArrayListExtra(
               RecognizerIntent.EXTRA_RESULTS);
-      Toast.makeText(m, (CharSequence) matches,Toast.LENGTH_SHORT).show();
+     // Toast.makeText(m, "yo",Toast.LENGTH_SHORT).show();
+     if(matches.equals(null))
+    	  Toast.makeText(m, "null",Toast.LENGTH_SHORT).show();
+      else
+    	  Toast.makeText(m, matches.get(0),Toast.LENGTH_SHORT).show();
+    	 
       //wordsList.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
         //      matches));
   }
