@@ -1,4 +1,4 @@
-from flask import Flask,json
+from flask import Flask,json,render_template,url_for
 import utils
 
 app = Flask(__name__)
@@ -17,6 +17,11 @@ def authorize(name,passwd):
 def get_est_time(activities):
 	rem_time=utils.get_time(activities)
 	return json.dumps(rem_time)
+
+@app.route('/api/map')
+def map_ret():
+	url_for('static',filename='map1.png')
+	return render_template("map.html")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True, port=5001)
