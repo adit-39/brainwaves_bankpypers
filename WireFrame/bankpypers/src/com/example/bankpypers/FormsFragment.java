@@ -2,14 +2,8 @@ package com.example.bankpypers;
 
 
 import java.util.ArrayList;
-import java.util.List;
 
-
-
-
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -17,14 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Toast;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
 
 public class FormsFragment extends Fragment{
 	
@@ -58,12 +49,15 @@ public class FormsFragment extends Fragment{
 						long arg3) {
 					switch(pos)
 					{
-					case 1:
-					case 2:
-					case 3:
-					case 4:
-					case 5:
-					case 6:
+					case 0:withdraw_dialog("Withdraw");
+							break;
+					case 1:withdraw_dialog("Deposit");
+							break;
+					case 2:break;
+					case 3:Intent i=new Intent(getActivity(),LoanFormActivity.class);
+							startActivity(i);
+					case 4:break;
+					case 5:break;
 					
 					}
 					
@@ -76,24 +70,28 @@ public class FormsFragment extends Fragment{
 	
 	}
     
-   /* public void withdraw_dialog(String type)
+   public void withdraw_dialog(String type)
 	{
     	final Dialog dialog = new Dialog(getActivity());
 		dialog.setContentView(R.layout.withdrawal_form);
 		dialog.setTitle(type);
 
-
-		Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
+		final EditText amount=(EditText)dialog.findViewById(R.id.entry);
+		
+		//ARVIND: ADD TEXT LISTENER TO CONVERT INTO WORDS
+		
+		Button dialogButton = (Button) dialog.findViewById(R.id.OKButton);
 		// if button is clicked, close the custom dialog
 		dialogButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				dialog.dismiss();
+				double cash=Double.parseDouble(amount.getText().toString());
+				
+				//send data
 			}
 		});
 
 		dialog.show();
 	}
-    
-    */
+   
 }

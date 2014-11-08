@@ -18,7 +18,10 @@
     </TextView>
 
     <ListView
-        android:padding="10dp"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingBottom="40dp"
+        android:paddingRight="10dp"
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="0dp"

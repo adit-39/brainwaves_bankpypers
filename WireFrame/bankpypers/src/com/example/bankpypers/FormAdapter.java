@@ -15,7 +15,7 @@ public class FormAdapter extends BaseAdapter{
 	
 	private Context context;
 	List<String> items;
-	static int count=1;
+	
 	
 	public FormAdapter(Context context, ArrayList<String>items)
 	{
@@ -49,8 +49,8 @@ public class FormAdapter extends BaseAdapter{
         }
 		
 		TextView title=(TextView)convertView.findViewById(R.id.title);
-		title.setText(count+"\t"+items.get(position));
-		count++;
+		title.setText(items.get(position));
+		
 		return convertView;
 	}
 

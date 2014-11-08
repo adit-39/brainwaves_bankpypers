@@ -26,6 +26,10 @@
             android:name=".WithdrawalFormActivity"
             android:label="@string/title_activity_form" >
         </activity>
+        <activity
+            android:name=".LoanFormActivity"
+            android:label="@string/title_activity_loan_form" >
+        </activity>
     </application>
 
 </manifest>
