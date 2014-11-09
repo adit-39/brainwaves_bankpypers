@@ -10,7 +10,7 @@ The App aims to provide users physically visiting bank branches with a seamless 
 ##Modules:
 
 ###App
-The executable can be found at which is the main Android App installer
+The executable can be found at Bankpypers/bin, an apk which is the main Android App installer
 
 ###Servers
 *Bank Server:
