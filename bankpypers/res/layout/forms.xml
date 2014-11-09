@@ -1,0 +1,35 @@
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#d8d8d8"
+    android:padding="15dp">
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Please select from one of the forms below:"
+        android:paddingBottom="10dp"
+        android:textSize="20dp"
+        android:textStyle="italic">
+        
+        
+    </TextView>
+
+    <ListView
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingBottom="40dp"
+        android:paddingRight="10dp"
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.46"
+        android:divider="#d8d8d8"
+        android:dividerHeight="10dp" >
+    </ListView>
+
+  
+    
+</LinearLayout>
