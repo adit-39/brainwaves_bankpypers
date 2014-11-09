@@ -13,7 +13,7 @@ The App aims to provide users physically visiting bank branches with a seamless 
 The executable can be found at Bankpypers/bin, an apk which is the main Android App installer
 
 ###Servers
-*Bank Server:
+* Bank Server:
 A simple simulated server of a bank. Not much emphasis given to this because it is to depict an actual bank server and no innovation added.
 * Wifi Server:
 This is a server that we proposed within the bank to coordinate a user's activities and inform users about turnaround time at the bank currently.
